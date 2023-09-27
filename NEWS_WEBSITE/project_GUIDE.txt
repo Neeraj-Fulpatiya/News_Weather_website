@@ -1,0 +1,7 @@
+               """  Crafting Digital Realities through Code  """
+
+FIRST->-> open login page and then it will direct you to the NEWSPAGE
+
+SECOND->-> there will be a cloud icon in the NEWSPAGE which will direct you to the WEATHERPAGE
+
+ 

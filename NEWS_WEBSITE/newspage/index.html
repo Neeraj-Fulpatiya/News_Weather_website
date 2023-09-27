@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+<div id="main">
+<!-- <div class="cursor"></div> -->
+<!-- <video  autoplay  muted src="bgvideo.mp4" style="width: 100%; height: 100%;"></video> -->
+    <nav>
+        <div class="main-nav container flex">
+            <a href="#" onclick="reload()" class="company-logo">
+                <!-- <img src="" style="height: 40px; width: 60px;" alt="company logo"> -->
+<div class="mylogo">
+                <pre ><span class="one" style="color: rgb(66, 136, 198);font-size: 33px;font-weight: 900;letter-spacing: 2px; text-decoration: underline;">FUSE</span>
+<span class="two" style="color: rgb(83, 81, 81); font-size: 33px; font-weight:900;letter-spacing: 2px;font-stretch: expanded; ">  NEWS</span>
+</pre></div>
+            </a>
+            <div class="nav-links container1 green borderwidth">
+                <ul class="flex yahoo">
+
+                    <li class="hover-link nav-item " id="ipl" onclick="onNavItemClick('technology')">Technology</li>
+                    <li class="hover-link nav-item" id="finance" onclick="onNavItemClick('space')">Space</li>
+                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('world')">World</li>
+                    <li class="hover-link nav-item " id="ipl" onclick="onNavItemClick('cricket')">Cricket</li>
+
+                    <!-- <li><div class="hover-link">link</li></div> -->
+                    <!-- <li  > <a href="./weatehr/yooo.html" class="forweather">dfsdf</a></li> -->
+     
+                    <!-- class="ho.er-link nav-item" -->
+                    <div class="forweather"><a href="/weatherpage/index.html" ><i class="ri-thunderstorms-fill"></i></a> </div>
+                   
+                </ul>
+            </div>
+
+            <div class="search-bar flex">
+                <input id="search-text" type="text" class="news-input" placeholder="e.g. Innovation">
+                <button id="search-button" class="search-button">Search</button>
+            </div>
+        </div>
+    </nav>
+  
+
+    <main>
+        <div class="cards-container container flex" id="cards-container">
+            
+        </div>
+    </main>
+
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">This is the Title</h3>
+                <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
+                <p class="news-desc" id="news-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe quis voluptatum quisquam vitae doloremque facilis molestias quae ratione cumque!</p>
+            </div>
+        </div>
+    </template>
+</div>
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feather - Weather</title>
+   
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="whole">
+    <video autoplay loop muted  src="baarish.mp4" class="back-video"></video>
+        
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="enter your city" spellcheck="false">
+        <button><img src="search.png" alt=""></button>
+        <!-- <img src="C:\Users\neera\Downloads\weather-app-img\images\drizzle.png" alt=""> -->
+        </div>
+        <div class="error">
+            <p style="color: black;">Invalid city name</p>
+        </div>
+        <div class="weather">
+            <img src="rain.png" class="weather-icon">
+            <h1 class="temp"> 22°c</h1>
+            <h2 class="city">New York</h2>
+            <div class="details"> 
+                <div class="col">
+                  <img src="humidity.png" alt="">  
+
+                
+                <div>
+                <p class="humidity">50%</p>
+                <p>humidity</p>
+            </div>
+            </div>
+            <div class="col">
+                <img src="wind.png" alt="">  
+
+              
+              <div>
+              <p class="wind">15km/h</p>
+              <p>Wind Speed</p>
+          </div>
+          </div>
+        </div>
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+const apikey= "31e5cd12d559a8a131d93fbc3b4b4d63";
+const apiurl="https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
+
+const searchbox=document.querySelector(".search input")
+const searchbtn=document.querySelector(".search button")
+const weathericon=document.querySelector(".weather-icon");
+
+async function checkWeather(city){
+    const response=await fetch(apiurl+city+`&appid=${apikey}`);
+   if(response.status==404){
+    document.querySelector(".error").style.display="block";
+    document.querySelector(".weather").style.display="none";
+
+   }
+   else{
+    var data =await response.json();
+    // console.log(data);
+
+
+// ab ye sb to console me dikhega to ab hm update krenge apne wind humidty ko taki wo dikhe
+document.querySelector(".city").innerHTML=data.name;
+
+document.querySelector(".temp").innerHTML=Math.round(data.main.temp)+ "°C";
+document.querySelector(".humidity").innerHTML=data.main.humidity+"%";
+document.querySelector(".wind").innerHTML=data.wind.speed+ " km/hr";
+
+if(data.weather[0].main=="Clouds")
+{
+    weathericon.src="clouds.png";
+}
+else if(data.weather[0].main=="Clear"){
+    weathericon.src="clear.png";
+
+}
+else if(data.weather[0].main=="Rain"){
+    weathericon.src="rain.png";
+
+}else if(data.weather[0].main=="Drizzle"){
+    weathericon.src="drizzle.png";
+
+}
+
+else if(data.weather[0].main=="Mist"){
+    weathericon.src="mist.png";
+
+}
+document.querySelector(".weather").style.display="block";
+document.querySelector(".error").style.display="none";
+
+
+}
+}
+
+searchbtn.addEventListener("click",()=>{
+    checkWeather(searchbox.value);
+})
+checkWeather();
+
+</script>
+
+
+</body>
+</html>-
